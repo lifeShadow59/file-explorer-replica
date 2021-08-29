@@ -1,0 +1,61 @@
+.
+├── Android
+│   └── Sdk
+│       ├── build-tools
+│       │   ├── 29.0.2
+│       │   │   ├── aapt
+│       │   │   ├── lib
+│       │   │   │   ├── apksigner.jar
+│       │   │   │   ├── d8.jar
+│       │   │   │   ├── dx.jar
+│       │   │   │   └── shrinkedAndroid.jar
+│       │   │   ├── lib64
+│       │   │   │   ├── libaapt2_jni.so
+│       │   │   │   ├── libbcc.so
+│       │   │   │   ├── libbcinfo.so
+│       │   │   │   ├── libclang_android.so
+│       │   │   │   ├── libc++.so
+│       │   │   │   └── libLLVM_android.so
+│       │   │   ├── llvm-rs-cc
+│       │   │   ├── mainDexClasses
+│       │   │   ├── mainDexClassesNoAapt.rules
+│       │   │   ├── mainDexClasses.rules
+│       │   │   ├── mipsel-linux-android-ld
+│       │   │   ├── NOTICE.txt
+│       │   │   ├── package.xml
+│       │   │   ├── renderscript
+│       │   │   │   ├── clang-include
+│       │   │   │   │   ├── adxintrin.h
+│       │   │   │   │   ├── altivec.h
+│       │   │   │   │   ├── ammintrin.h
+│       │   │   │   │   ├── arm_acle.h
+│       │   │   │   │   ├── avx2intrin.h
+│       │   │   │   │   ├── avx512bwintrin.h
+│       │   │   │   │   ├── avx512cdintrin.h
+│       │   │   │   │   ├── avx512dqintrin.h
+│       │   │   │   │   ├── avx512erintrin.h
+│       │   │   │   │   ├── avx512fintrin.h
+│       │   │   │   │   ├── avx512ifmaintrin.h
+│       │   │   │   │   ├── avx512ifmavlintrin.h
+│       │   │   │   │   ├── avx512pfintrin.h
+│       │   │   │   │   ├── avx512vbmiintrin.h
+│       │   │   │   │   ├── avx512vbmivlintrin.h
+│       │   │   │   │   ├── avx512vlbwintrin.h
+│       │   │   │   │   ├── avx512vlcdintrin.h
+│       │   │   │   │   ├── avx512vldqintrin.h
+│       │   │   │   │   ├── avx512vlintrin.h
+│       │   │   │   │   ├── avxintrin.h
+│       │   │   │   │   ├── bmi2intrin.h
+│       │   │   │   │   ├── bmiintrin.h
+│       │   │   │   │   ├── __clang_cuda_cmath.h
+│       │   │   │   │   ├── __clang_cuda_intrinsics.h
+│       │   │   │   │   ├── __clang_cuda_math_forward_declares.h
+│       │   │   │   │   ├── __clang_cuda_runtime_wrapper.h
+│       │   │   │   │   ├── clflushoptintrin.h
+│       │   │   │   │   ├── CMakeLists.txt
+│       │   │   │   │   ├── cpuid.h
+│       │   │   │   │   ├── cuda_builtin_vars.h
+│       │   │   │   │   ├── emmintrin.h
+│       │   │   │   │   ├── f16cintrin.h
+│       │   │   │   │   ├── float.h
+
