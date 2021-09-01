@@ -2,60 +2,55 @@ import io
 import os
 import remove_line as removeLine
 from open_file import openFile
-from  const.const_string import ConstantString 
+from const.const_string import ConstantString 
 from get_ascii_value import getAsciiValue
+from typing import Tuple
 
-indexValue:int = 4
+
+def getFileOrDirName(line:str) -> Tuple[str,bool]:
+    indexOfInvertedComma:int = 1
+    fileOrDirName = ''
+    for i in range(0,len(line)):
+        if line[i] == '"':
+            if indexOfInvertedComma == 3:
+                break
+            indexOfInvertedComma = indexOfInvertedComma + 1
+        if indexOfInvertedComma == 2:
+
+            fileOrDirName = fileOrDirName + ('' if line[i] == '"'  else line[i])
+    isDirectoryAvailable:bool = False 
+    if (line.find('directory') == -1):
+        isDirectoryAvailable = False
+    else:
+        isDirectoryAvailable = True
+    return fileOrDirName , isDirectoryAvailable
 
 
-myFile:io.TextIOWrapper = openFile(ConstantString.SOURCE_DIRS_PATH,ConstantString.FILE_OPEN_IN_READ_AND_WRITE_MODE)
+myFile:io.TextIOWrapper = openFile(ConstantString.SOURCE_FILES_PATH,ConstantString.FILE_OPEN_IN_READ_AND_WRITE_MODE)
 lines =  myFile.readlines()
 
-# for line in lines:
-#     x = line[indexValue:]
-#     print(x,end='')
+
 PATH:str = os.path.dirname(os.path.realpath(__file__))
-print(ord('│'))
 
-# This is For get Files and folder list
-# for i in range(1,len(lines) - 2):
-#     # dir
-#     print(i+1 , '    ' ,lines[i][indexValue:],end='')
-#     # path = os.path.join(PATH, lines[i][indexValue:][:-1])
-#     # os.mkdir(path)
+current_path:str =PATH
+pastPathList:str = [PATH]
 
+for i in range(2,len(lines) - 5):
+    dirName , isDirectoryAvailable = getFileOrDirName(lines[i])
+    if dirName == '' and isDirectoryAvailable:
+        pastPathList.pop()
+        current_path = pastPathList[-1]
 
-
+    elif isDirectoryAvailable:        
+        if not dirName == '.':
+            current_path = os.path.join(current_path,dirName)
+        else:
+            current_path = os.path.join(current_path,'mains')
+        os.mkdir(current_path)
+        pastPathList.append(current_path)
     
-
-#     try:
-#         asciiValue = getAsciiValue(lines[i+1][indexValue])
-#         i-1
-#         if asciiValue == 9500 or asciiValue == 9492 or asciiValue == 9474:
-#             indexValue = indexValue + 4
-
-#         xasciiValue = getAsciiValue(lines[i+1][indexValue-4])
-#         i-1
-#         if (xasciiValue == 9500 or xasciiValue == 9492 or xasciiValue == 9474):
-#             pass
-
-#         else:
-#             indexValue = indexValue - 4
-#     except IndexError:
-#         print('index not in range')
-
-
-
-
-
-
-
-
-
-
-
+    else :
+        with open(os.path.join(current_path, dirName), 'w') as fp:
+            pass
 
 myFile.close()
-# removeLine(my_file,lines,1)
-# x = lines[1][indexValue:]
-# print(x,end='')
